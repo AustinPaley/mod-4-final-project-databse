@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'rest-client'
+
+def data_parsing
+  url = "https://api.unsplash.com/search/photos?client_id=" + ENV['API_KEY'] + "&page=1&query=shoes"
+  product_data = RestClient.get(url)
+  parsed_product_data = JSON.parse(product_data)
+  parsed_product_data
+end
+
+def create_new_object
+  data_parsing["results"].each do |object_key, object_value|
+    random_number = rand(1..100)
+    Item.create(
+      name: object_key["tags"][0]["title"],
+      img_src: object_key["urls"]["raw"],
+      amount: 1,
+      price: "#{random_number}"
+    )
+  end
+end
+
+create_new_object
