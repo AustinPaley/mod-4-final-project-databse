@@ -12,7 +12,7 @@ def create_shoe_object
     random_number = rand(1..100)
     Item.create(
       name: object_key["tags"][0]["title"],
-      img_src: object_key["urls"]["raw"],
+      img_src: object_key["urls"]["small"],
       amount: 1,
       price: "#{random_number}"
     )
@@ -31,7 +31,7 @@ def create_sunglasses_object
     random_number = rand(1..100)
     Item.create(
       name: object_key["tags"][0]["title"],
-      img_src: object_key["urls"]["raw"],
+      img_src: object_key["urls"]["small"],
       amount: 1,
       price: "#{random_number}"
     )
@@ -50,7 +50,7 @@ def create_watches_object
     random_number = rand(1..100)
     Item.create(
       name: object_key["tags"][0]["title"],
-      img_src: object_key["urls"]["raw"],
+      img_src: object_key["urls"]["small"],
       amount: 1,
       price: "#{random_number}"
     )
@@ -67,7 +67,6 @@ end
 def create_pants_object
   pants_data_parsing["results"].each do |object_key, object_value|
     random_number = rand(1..100)
-    debugger
     Item.create(
       name: object_key["tags"][0]["title"],
       img_src: object_key["urls"]["small"],
