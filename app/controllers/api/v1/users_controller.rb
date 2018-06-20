@@ -22,7 +22,8 @@ class Api::V1::UsersController < ApplicationController
 
   private
 
-  def item_params
+  def user_params
+    params.require(:user).permit(:name)
   end
 
 end
