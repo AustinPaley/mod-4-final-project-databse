@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2018_06_21_184749) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
     t.string "img_src"
     t.integer "amount"
     t.string "price"
@@ -32,21 +33,6 @@ ActiveRecord::Schema.define(version: 2018_06_21_184749) do
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
-  end
-
-  create_table "transaction_items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "item_id"
-    t.integer "transaction_id"
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.integer "transaction_id"
-    t.integer "buyer_id"
-    t.integer "seller_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
