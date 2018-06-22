@@ -16,7 +16,6 @@ def create_shoe_object
       img_src: object_key["urls"]["small"],
       amount: 1,
       price: "#{random_number}",
-      user_id: 20
     )
   end
 end
@@ -37,7 +36,6 @@ def create_sunglasses_object
       img_src: object_key["urls"]["small"],
       amount: 1,
       price: "#{random_number}",
-      user_id: 20
     )
   end
 end
@@ -58,7 +56,6 @@ def create_watches_object
       img_src: object_key["urls"]["small"],
       amount: 1,
       price: "#{random_number}",
-      user_id: 20
     )
   end
 end
@@ -79,7 +76,6 @@ def create_pants_object
       img_src: object_key["urls"]["small"],
       amount: 1,
       price: "#{random_number}",
-      user_id: 20
     )
   end
 end
