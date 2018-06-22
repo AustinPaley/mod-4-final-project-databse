@@ -17,7 +17,7 @@ class Api::V1::MessagesController < ApplicationController
   private
 
   def message_params
-    params.permit(:title, :content)
+    params.require(:message).permit(:sender_id, :receiver_id, :content, :transaction)
   end
 
   def find_message
